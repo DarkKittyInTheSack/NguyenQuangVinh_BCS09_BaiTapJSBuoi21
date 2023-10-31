@@ -139,10 +139,10 @@ function addEmployee(){
     event.preventDefault()
     var employee = getEmployee()
     console.log(employee)
-    if(employee != undefined){
+    if(employee){
         employeeArray.push(employee)
         addToLocalStorage('employeeArray',employeeArray)
-        renderData()
+        renderData(employeeArray)
     }
 
     document.querySelector('#form').reset()
@@ -220,7 +220,8 @@ function searchByRank(input){
     var rankEmployee = []
   
     for(i = 0; i < employeeArray.length; i++ ){
-        if(calculateEmployeeRank(employeeArray[i].gioLam).includes(input)){
+        var employeeRank = removeVietnameseTones(calculateEmployeeRank(employeeArray[i].gioLam).toLowerCase().trim())
+        if(employeeRank.includes(input.toLowerCase().trim())){
             rankEmployee.push(employeeArray[i])
         }
     }
