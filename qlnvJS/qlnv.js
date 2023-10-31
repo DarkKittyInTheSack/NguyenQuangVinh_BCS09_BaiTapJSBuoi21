@@ -141,8 +141,11 @@ function addEmployee(){
     console.log(employee)
     if(employee){
         employeeArray.push(employee)
+        alert('Thêm nhân viên thành công')
         addToLocalStorage('employeeArray',employeeArray)
         renderData(employeeArray)
+    }else{
+        alert('Không thể thêm nhân viên')
     }
 
     document.querySelector('#form').reset()
@@ -159,10 +162,15 @@ function deleteEmployee(employeeID){
 
     if(index!= -1){
         employeeArray.splice(index,1)
+        removeFromLocalStorage('employeeArray')
+        addToLocalStorage('employeeArray',employeeArray)
+        getFromLocalStorage('employeeArray')
+
+        alert('Đã xóa thành công thông tin nhân viên')
+    }else{
+        alert('Không thể xóa thông tin nhân viên này')
     }
-    removeFromLocalStorage('employeeArray')
-    addToLocalStorage('employeeArray',employeeArray)
-    getFromLocalStorage('employeeArray')
+    
 }
 
 document.querySelector('#btnThem').addEventListener('click',function(){
@@ -204,11 +212,18 @@ function updateEmployee(){
         }
     }
 
-    employeeArray[index] = employee
+    if(index != -1){
+        employeeArray[index] = employee
 
-    removeFromLocalStorage('employeeArray')
-    addToLocalStorage('employeeArray',employeeArray)
-    renderData(employeeArray)
+        removeFromLocalStorage('employeeArray')
+        addToLocalStorage('employeeArray',employeeArray)
+        renderData(employeeArray)
+
+        alert("Cập nhật thông tin thành công")
+    }else{
+        alert('Cập nhật thông tin thất bại')
+    }
+    
 }
 
 document.getElementById('btnCapNhat').addEventListener('click',function(){
