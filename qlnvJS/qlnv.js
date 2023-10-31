@@ -265,7 +265,6 @@ function searchByRank(input){
                     </td>
                 </tr>
             `
-
             document.getElementById('tableDanhSach').innerHTML = content
         }
 }
