@@ -45,13 +45,13 @@ getFromLocalStorage('employeeArray')
 function calculateTotalSalary(inputRole, inputSalary){
     switch(inputRole){
         case "Sếp":
-            return inputSalary *3
+            return (inputSalary *3).toLocaleString('it-IT',{style: 'currency', currency: 'VND'})
 
         case "Trưởng phòng":
-            return inputSalary *2
+            return (inputSalary *2).toLocaleString('it-IT',{style: 'currency', currency: 'VND'})
 
         case "Nhân viên":
-            return inputSalary
+            return inputSalary.toLocaleString('it-IT',{style: 'currency', currency: 'VND'})
     }
 }
 
@@ -120,7 +120,7 @@ function renderData(employeeArrays){
                     <td>${employee.email}</td>
                     <td>${employee.datepicker}</td>
                     <td>${employee.chucvu}</td>
-                    <td>${calculateTotalSalary(employee.chucvu,employee.luongCB).toLocaleString('it-IT',{style: 'currency', currency: 'VND'})}</td>
+                    <td>${calculateTotalSalary(employee.chucvu,employee.luongCB)}</td>
                     <td>${calculateEmployeeRank(employee.gioLam)}</td>
                     <td>
                         <button onclick="deleteEmployee('${employee.tknv}')" class="btn btn-danger">Xoá</button>
