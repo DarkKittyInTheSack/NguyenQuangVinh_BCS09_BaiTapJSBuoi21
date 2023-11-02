@@ -120,7 +120,7 @@ function renderData(employeeArrays){
                     <td>${employee.email}</td>
                     <td>${employee.datepicker}</td>
                     <td>${employee.chucvu}</td>
-                    <td>${calculateTotalSalary(employee.chucvu,employee.luongCB)}</td>
+                    <td>${calculateTotalSalary(employee.chucvu,employee.luongCB).toLocaleString('it-IT',{style: 'currency', currency: 'VND'})}</td>
                     <td>${calculateEmployeeRank(employee.gioLam)}</td>
                     <td>
                         <button onclick="deleteEmployee('${employee.tknv}')" class="btn btn-danger">Xoá</button>
