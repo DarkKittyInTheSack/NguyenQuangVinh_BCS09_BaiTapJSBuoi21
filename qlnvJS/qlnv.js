@@ -51,6 +51,9 @@ function calculateTotalSalary(inputRole, inputSalary){
             return (inputSalary *2).toLocaleString('it-IT',{style: 'currency', currency: 'VND'})
 
         case "Nhân viên":
+
+
+        
             return inputSalary.toLocaleString('it-IT',{style: 'currency', currency: 'VND'})
     }
 }
